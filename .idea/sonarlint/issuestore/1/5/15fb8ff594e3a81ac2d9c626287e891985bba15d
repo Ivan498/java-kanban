@@ -1,0 +1,7 @@
+
+’
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÑŞğ½ÿÿÿÿÿ8ıÑÆö§1
+
+java:S1319"kThe type of "subTasksIds" should be an interface such as "List" rather than the implementation "ArrayList".(öë£Œÿÿÿÿÿ8ıÑÆö§1
+R
+java:S1172"0Remove this unused method parameter "idSubtask".(ıì²²ıÿÿÿÿ8ƒÒÆö§1
