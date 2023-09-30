@@ -5,7 +5,7 @@ import Tasks.Task;
 import java.util.*;
 
 public class InMemoryHistoryManager implements HistoryManager {
-    
+
     Node first;
     Node last;
     Map<Integer, Node> map = new HashMap<>();
@@ -75,7 +75,6 @@ public class InMemoryHistoryManager implements HistoryManager {
 
     public void add (Task task){
         if (task != null){
-            remove(task.getId());
             linkLast(task);
         }
     }
