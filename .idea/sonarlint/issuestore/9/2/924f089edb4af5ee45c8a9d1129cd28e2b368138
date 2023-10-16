@@ -1,13 +1,13 @@
 
 7
-java:S1220""Move this file to a named package.8®õÿ”®1
-G	java:S106 "+Replace this use of System.out by a logger.(û»Â„8¼õÿ”®1
-L	java:S106!"+Replace this use of System.out by a logger.(æÊãôûÿÿÿÿ8½õÿ”®1
-L	java:S106""+Replace this use of System.out by a logger.(ÀÌ£“ýÿÿÿÿ8½õÿ”®1
-L	java:S106$"+Replace this use of System.out by a logger.(›‚†ˆÿÿÿÿÿ8½õÿ”®1
-L	java:S106%"+Replace this use of System.out by a logger.(˜”æ£ùÿÿÿÿ8¾õÿ”®1
-G	java:S106'"+Replace this use of System.out by a logger.(ä÷é”8¿õÿ”®1
-G	java:S106-"+Replace this use of System.out by a logger.(ÀÅÇž8¿õÿ”®1
-L	java:S106."+Replace this use of System.out by a logger.(æÊãôûÿÿÿÿ8Àõÿ”®1
-L	java:S106/"+Replace this use of System.out by a logger.(ÀÌ£“ýÿÿÿÿ8Àõÿ”®1
-G	java:S1062"+Replace this use of System.out by a logger.(ä÷é”8ÌØ‚•®1
+java:S1220""Move this file to a named package.8èó¤º³1
+G	java:S106!"+Replace this use of System.out by a logger.(û»Â„8ïó¤º³1
+L	java:S106""+Replace this use of System.out by a logger.(æÊãôûÿÿÿÿ8ïó¤º³1
+L	java:S106#"+Replace this use of System.out by a logger.(ÀÌ£“ýÿÿÿÿ8ïó¤º³1
+L	java:S106%"+Replace this use of System.out by a logger.(›‚†ˆÿÿÿÿÿ8ðó¤º³1
+L	java:S106&"+Replace this use of System.out by a logger.(˜”æ£ùÿÿÿÿ8ðó¤º³1
+G	java:S106("+Replace this use of System.out by a logger.(ä÷é”8ðó¤º³1
+G	java:S106."+Replace this use of System.out by a logger.(û»Â„8ðó¤º³1
+L	java:S106/"+Replace this use of System.out by a logger.(æÊãôûÿÿÿÿ8ðó¤º³1
+L	java:S1060"+Replace this use of System.out by a logger.(ÀÌ£“ýÿÿÿÿ8ðó¤º³1
+G	java:S1063"+Replace this use of System.out by a logger.(ä÷é”8ñó¤º³1

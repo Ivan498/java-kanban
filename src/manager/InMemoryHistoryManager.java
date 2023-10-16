@@ -6,11 +6,11 @@ import java.util.*;
 
 public class InMemoryHistoryManager implements HistoryManager {
 
-    Node first;
-    Node last;
-    Map<Integer, Node> map = new HashMap<>();
+    private Node first;
+    private Node last;
+    private Map<Integer, Node> map = new HashMap<>();
 
-    @Override
+
     public void removeNode(Node node) {
         if (node != null) {
             Task value = node.value;
@@ -21,20 +21,17 @@ public class InMemoryHistoryManager implements HistoryManager {
             if (first == node && last == node) {
                 first = null;
                 last = null;
-            }
-            else if (first == node && (last != node)) {
+            } else if (first == node && (last != node)) {
                 first = next;
                 first.prev = null;
-            }
-            else if (first != node && last == node){
+            } else if (first != node && last == node) {
                 last = prev;
                 last.next = null;
-            }
-            else {
+            } else {
                 prev.next = next;
                 next.prev = prev;
             }
-            node = null;
+            map.remove(value.getId());
         }
     }
 
@@ -57,33 +54,42 @@ public class InMemoryHistoryManager implements HistoryManager {
         return result;
     }
 
-    @Override
-    public void linkLast(Task task) {
-        Node node = new Node(task);
+    public void linkLast(Task value) {
+        Node oldLast = last;
+        Node node = new Node(oldLast, value, null);
+        if (value != null && !map.containsKey(value.getId())) {
+            map.put(value.getId(), node);
 
-        if (last != null) {
-            last.next = node;
-            node.prev = last;
+            if (oldLast != null) {
+                oldLast.setNext(node);
+            } else {
+                first = node;
+            }
             last = node;
         }
-        else {
-            first = node;
-            last = node;
-        }
-        map.put(task.getId(), node);
     }
 
     public void add (Task task){
         if (task != null){
+            remove(task.getId());
             linkLast(task);
         }
     }
 
-    public static class Node {
-        Task value;
-        Node next;
-        Node prev;
-        public Node(Task value) {
+    static class Node {
+        private Task value;
+        private Node next;
+        private Node prev;
+        public Node(Node prev, Task value, Node next) {
+            this.prev = prev;
+            this.value = value;
+            this.next = next;
+        }
+        public Task getValue() {
+            return value;
+        }
+
+        public void setValue(Task value) {
             this.value = value;
         }
 

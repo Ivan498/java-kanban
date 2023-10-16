@@ -1,15 +1,5 @@
 
-T
-java:S2589"7Remove this expression which always evaluates to "true"(ÿÎ—·8üõ“¯®1
 Y
-java:S2589"7Remove this expression which always evaluates to "true"(ôÎüÿÿÿÿ8ıõ“¯®1
-[
-java:S1854"9Remove this useless assignment to local variable "value".(Ø”õÏÿÿÿÿÿ8„ö“¯®1
-U
-java:S1854%"8Remove this useless assignment to local variable "node".(¤³çæ8¿„ˆ¯®1
-L
-java:S1481"*Remove this unused "value" local variable.(Ø”õÏÿÿÿÿÿ8†ö“¯®1
-F
-java:S1940")Use the opposite operator ("!=") instead.(ÿÎ—·8Á„ˆ¯®1
-K
-java:S1940")Use the opposite operator ("!=") instead.(ôÎüÿÿÿÿ8Â„ˆ¯®1
+java:S2589"7Remove this expression which always evaluates to "true"(ï§Üîúÿÿÿÿ8”üìŠ±1
+T
+java:S2589"7Remove this expression which always evaluates to "true"(¸Ö÷È8”üìŠ±1

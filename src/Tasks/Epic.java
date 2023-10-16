@@ -7,9 +7,10 @@ import java.util.ArrayList;
 public class Epic extends Task {
     protected ArrayList<Integer> subTasksIds;
 
-    public Epic(String name, String description) {
+    public Epic(String name, String description , Types types) {
         super(name,description, Status.NEW);
         subTasksIds = new ArrayList<>();
+        this.types = Types.TASK;
     }
 
     public ArrayList<Integer> getSubTasksIds() {
