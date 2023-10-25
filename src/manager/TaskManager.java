@@ -24,4 +24,5 @@ public interface TaskManager {
     void deletionSubtaskById(int id) throws IOException;
     List<Subtask> getEpicTasks(int epicId) throws IOException;
     void updateEpicStatus(int epicId) throws IOException;
+    List<Task> getHistory() throws IOException;
 }

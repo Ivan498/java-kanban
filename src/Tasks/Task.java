@@ -8,6 +8,7 @@ public class Task {
     protected int id;
     protected Status status;
     protected Types types;
+    protected String  epic;
 
     public Task(String name, String description, Status status) {
         this.name = name;
@@ -15,8 +16,15 @@ public class Task {
         this.status = status;
         this.types = Types.TASK;
     }
-
-
+//id,type,name,status,description,epic
+    public Task(int id,Types types,String name, Status status, String description,String epic){
+        this.id = id;
+        this.types = types;
+        this.name = name;
+        this.status = status;
+        this.description = description;
+        this.epic = epic;
+    }
 
     public String getName() {
         return name;
@@ -58,14 +66,21 @@ public class Task {
         this.types = types;
     }
 
+    public String getEpic() {
+        return epic;
+    }
+
+    public void setEpic(String epic) {
+        this.epic = epic;
+    }
+
     @Override
     public String toString() {
-        return "Task{" +
-                "name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", id=" + id +
-                ", status=" + status +
-                '}';
+        return"Таски{" +
+                "id='" + id + '\'' +
+                "Имя='" + name + '\'' +
+                "Описание='" + description + '\'' +
+                "Статус='" + status + '\'' +'}';
     }
 
 }

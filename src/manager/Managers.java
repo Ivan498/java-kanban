@@ -1,8 +1,11 @@
 package manager;
 
 public final class Managers {
-    public static TaskManager getDefault(HistoryManager historyManager) {
-        return new InMemoryTaskManager(historyManager);
+    private Managers() {
+
+    }
+    public static TaskManager getDefault() {
+        return new InMemoryTaskManager("example.csv");
     }
     public static HistoryManager getHistoryDefault(){
         return new InMemoryHistoryManager();

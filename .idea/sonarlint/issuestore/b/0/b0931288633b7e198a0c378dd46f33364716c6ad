@@ -1,6 +1,8 @@
 
 ’
-java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(áğéøùÿÿÿÿ8€œŸº³1
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(áğéøùÿÿÿÿ8¤êŞ›¶1
 ˆ
-java:S1319"kThe type of "subTasksIds" should be an interface such as "List" rather than the implementation "ArrayList".(Ôú¶8œŸº³1
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ğìõ³8‚œŸº³1
+java:S1319"kThe type of "subTasksIds" should be an interface such as "List" rather than the implementation "ArrayList".(Ôú¶8«àß›¶1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ğìõ³8§êŞ›¶1
+N
+java:S1172",Remove this unused method parameter "types".(çóµ³ıÿÿÿÿ8´êŞ›¶1

@@ -19,11 +19,8 @@ public class CSVFormatHandler {
         task.getTypes() + DELIMITER +
         task.getName() + DELIMITER +
         task.getStatus() + DELIMITER +
-        task.getDescription() + DELIMITER;
-
-        if (task.getTypes() == Types.SUBTASK){
-            result = result + ((Subtask) task).getEpicId();
-        }
+        task.getDescription() + DELIMITER +
+        task.getEpic() + DELIMITER;
         return result;
     }
 

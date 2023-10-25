@@ -1,0 +1,36 @@
+
+L	java:S1063"+Replace this use of System.out by a logger.(Œ¥€äüÿÿÿÿ8×¼ñ«¶1
+G	java:S1064"+Replace this use of System.out by a logger.(â¿àÅ8Ø¼ñ«¶1
+F	java:S1065"+Replace this use of System.out by a logger.(¡ğ¢88Ø¼ñ«¶1
+L	java:S1067"+Replace this use of System.out by a logger.(ÁÆÌ³úÿÿÿÿ8Ø¼ñ«¶1
+G	java:S1068"+Replace this use of System.out by a logger.(¡‡Äô8Ø¼ñ«¶1
+L	java:S106:"+Replace this use of System.out by a logger.(ÍŠ¿Ôÿÿÿÿÿ8Ù¼ñ«¶1
+L	java:S106@"+Replace this use of System.out by a logger.(Œ¥€äüÿÿÿÿ8Ù¼ñ«¶1
+G	java:S106A"+Replace this use of System.out by a logger.(â¿àÅ8Ù¼ñ«¶1
+F	java:S106B"+Replace this use of System.out by a logger.(¡ğ¢88Ú¼ñ«¶1
+L	java:S106E"+Replace this use of System.out by a logger.(ÍŠ¿Ôÿÿÿÿÿ8Ú¼ñ«¶1
+„
+java:S4087["bRemove this "close" call; closing the resource is handled automatically by the try-with-resources.(ÄËªŸÿÿÿÿÿ8Û¼ñ«¶1
+R
+java:S2209Y"5Change this instance-reference to a static reference.(½Åäó8Ş¼ñ«¶1
+M
+java:S1172c"+Remove this unused method parameter "file".(»•ó–ùÿÿÿÿ8ß¼ñ«¶1
+L
+java:S1128
+"/Remove this unused import 'java.nio.file.Path'.(×²êÂ8–íû«¶1
+M
+java:S1128"0Remove this unused import 'java.nio.file.Paths'.(áè°¯8—íû«¶1
+;
+java:S1128"Remove this duplicated import.(æè¥8ç¼ñ«¶1
+;
+java:S1128"Remove this duplicated import.(Îº±©8ç¼ñ«¶1
+@
+java:S1128"Remove this duplicated import.(—¨­ûÿÿÿÿ8ç¼ñ«¶1
+J
+java:S1128"-Remove this unused import 'manager.Managers'.(ñ¯¼µ8—íû«¶1
+@
+java:S1128"Remove this duplicated import.(€’¹Âşÿÿÿÿ8ç¼ñ«¶1
+U
+java:S1128"3Remove this unused import 'manager.HistoryManager'.(îšàşÿÿÿÿ8—íû«¶1
+M
+java:S1128"0Remove this unused import 'manager.TaskManager'.(ğíé—8—íû«¶1

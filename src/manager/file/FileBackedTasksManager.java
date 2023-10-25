@@ -3,48 +3,101 @@ package manager.file;
 import Tasks.Epic;
 import Tasks.Subtask;
 import Tasks.Task;
-import manager.HistoryManager;
-import manager.InMemoryTaskManager;
+import Tasks.Types;
+import manager.*;
 
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
+import Tasks.Epic;
+import Tasks.Subtask;
+import Tasks.Types;
+import manager.Managers;
+import Tasks.Task;
+import manager.HistoryManager;
+import manager.Status;
+import manager.TaskManager;
+import manager.file.FileBackedTasksManager;
 
+import java.io.FileWriter;
+import java.io.IOException;
 public class FileBackedTasksManager extends InMemoryTaskManager {
     private CSVFormatHandler handler = new CSVFormatHandler();
     File file;
-    public void save() throws IOException {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(file))) {
+    public static void main(String[] args) throws IOException {
 
-            writer.write(handler.getHeader());
-            writer.newLine();
+        FileBackedTasksManager fileBackedTasksManager = new FileBackedTasksManager(new File("example.csv"));
+
+        Task task1 = new Task(1,Types.TASK,"Задача №1",Status.NEW, "...", "task1");
+        fileBackedTasksManager.addTask(task1);
+        fileBackedTasksManager.addTask(new Task(2,Types.TASK,"Задача №2",Status.NEW, "...", "task2"));
+
+        Epic epic1 = new Epic(3,Types.EPIC,"Epic №1",Status.NEW, "...", "epic1");
+        fileBackedTasksManager.addEpic(epic1);
+
+        Subtask subtask1 = new Subtask(4,Types.SUBTASK, "Подзадача №1",Status.NEW,"Зайти на сайт","subtask1");
+        fileBackedTasksManager.addSubtask(subtask1);
+        Subtask subtask2 = new Subtask(5,Types.SUBTASK,"Подзадача №2",Status.NEW,"нажать на кнопку","subtask2");
+        fileBackedTasksManager.addSubtask(subtask2);
+        Subtask subtask3 = new Subtask(6,Types.SUBTASK,"Подзадача №3",Status.NEW,"найти работу","subtask3");
+        fileBackedTasksManager.addSubtask(subtask3);
+
+        fileBackedTasksManager.updateSubtask(subtask3);
+
+        Epic epic2 = new Epic(7,Types.EPIC,"Epic №2",Status.NEW, "...", "epic2");
+        fileBackedTasksManager.addEpic(epic2);
+
+        System.out.println("Все задачи: " + fileBackedTasksManager.getAllTask());
+        System.out.println("Все эпики: " + fileBackedTasksManager.getAllEpic());
+        System.out.println("Все сабтаски: " + fileBackedTasksManager.getAllSubtask());
+
+        System.out.println("Первая задача: " + fileBackedTasksManager.getTaskById(1));
+        System.out.println("Вторая задача: " + fileBackedTasksManager.getTaskById(2));
+
+        System.out.println("История: " + fileBackedTasksManager.getHistory());
+
+        fileBackedTasksManager.removeAllTask();
+        fileBackedTasksManager.removeAllEpic();
+        fileBackedTasksManager.removeAllSubtask();
+
+        System.out.println("Все задачи: " + fileBackedTasksManager.getAllTask());
+        System.out.println("Все эпики: " + fileBackedTasksManager.getAllEpic());
+        System.out.println("Все сабтаски: " + fileBackedTasksManager.getAllSubtask());
+
+        fileBackedTasksManager.removeAllTask();
+        System.out.println("История: " + fileBackedTasksManager.getHistory());
+
+        fileBackedTasksManager.save();
+    }
+
+    public void save() throws IOException {
+        try (FileWriter writer = new FileWriter("C:\\Users\\vanka\\dev\\java-kanban\\src\\manager\\example.csv",false)) {
+
+            writer.write(handler.getHeader() + "\n") ;
 
             for (Task task : tasks.values()) {
-                writer.write(handler.toString(task));
-                writer.newLine();
+                writer.write(handler.toString(task) + "\n");
             }
             for (Epic epic : epics.values()) {
-                writer.write(handler.toString(epic));
-                writer.newLine();
+                writer.write(handler.toString(epic) + "\n");
             }
             for (Subtask subtask : subTasks.values()) {
-                writer.write(handler.toString(subtask));
-                writer.newLine();
+                writer.write(handler.toString(subtask) + "\n");
             }
 
-            writer.write(handler.historyToString(historyManager));
-            writer.newLine();
+            writer.write(handler.historyToString(historyManager) + "\n");
+
+            writer.close();
 
         } catch (IOException e) {
             throw new IllegalArgumentException("Невозможно прочитать файл");
         }
     }
 
-    static FileBackedTasksManager  loadFromFile(File file){
-        
-    }
 
-    public FileBackedTasksManager(HistoryManager historyManager) throws IOException {
-        super(historyManager);
+    public FileBackedTasksManager(File file) throws IOException {
+        super("example.csv");
         save();
     }
 
@@ -142,5 +195,12 @@ public class FileBackedTasksManager extends InMemoryTaskManager {
     public void updateEpicStatus(int epicId) throws IOException {
         super.updateEpicStatus(epicId);
         save();
+    }
+
+    @Override
+    public List<Task> getHistory() throws IOException {
+        List<Task> tasks =  super.getHistory();
+        save();
+        return tasks;
     }
 }

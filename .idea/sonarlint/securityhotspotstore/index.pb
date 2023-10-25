@@ -30,3 +30,5 @@ V
 ,src/manager/file/FileBackedTasksManager.java,1\2\12b9fa17b76395aba52bb2f9cd9d384ba98841da
 D
 src/Tasks/Types.java,b\7\b7254dbeebcb93b2d46544bea278d111a6887f83
+G
+src/manager/example.csv,6\1\61c58070b51febe239396f1145133baf8d1cf758

@@ -6,13 +6,16 @@ import Tasks.Task;
 import manager.HistoryManager;
 import manager.Status;
 import manager.TaskManager;
+import manager.file.FileBackedTasksManager;
 
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
         HistoryManager historyManager = Managers.getHistoryDefault();
-        TaskManager taskManager = Managers.getDefault(historyManager);
+        TaskManager taskManager = Managers.getDefault();
         Task task1 = new Task("Задача №1", "...", Status.DONE);
         taskManager.addTask(task1);
         taskManager.addTask(new Task("Задача №2", "...", Status.NEW));
@@ -25,7 +28,7 @@ public class Main {
         Subtask subtask2 = new Subtask("Подзадача №2","Написать работадателям", Status.DONE,epic1.getId(),Types.SUBTASK);
         taskManager.addSubtask(subtask2);
         Subtask subtask3 = new Subtask("Подзадача №3","Прийте на работу", Status.DONE,epic1.getId(), Types.SUBTASK);
-        taskManager.addSubtask(subtask2);
+        taskManager.addSubtask(subtask3);
 
         taskManager.updateSubtask(subtask3);
 

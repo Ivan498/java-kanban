@@ -12,6 +12,10 @@ public class Subtask extends Task {
         this.types = Types.SUBTASK;
     }
 
+    public Subtask(int id, Types types, String name, Status status, String description, String epic) {
+        super(id, types, name,status, description, epic);
+    }
+
     public int getEpicId() {
         return epicId;
     }
@@ -24,7 +28,7 @@ public class Subtask extends Task {
 
     @Override
     public String toString() {
-        return "Subtask{" +
+        return "Сабтаски{" +
                 "id='" + id + '\'' +
                 "Имя='" + name + '\'' +
                 "Описание='" + description + '\'' +

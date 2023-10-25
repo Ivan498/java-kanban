@@ -19,29 +19,35 @@ public class InMemoryTaskManager implements TaskManager {
     protected HistoryManager historyManager = Managers.getHistoryDefault();
     private int nextId = 0;
 
-    public InMemoryTaskManager(HistoryManager historyManager) {
-        this.historyManager = historyManager;
+    public InMemoryTaskManager(String s) {
+
     }
-    @Override
     public void addTask(Task task) throws IOException {
-        task.setId(++nextId);
+        if (task.getId() == 0) {
+            task.setId(++nextId);
+        }
         tasks.put(task.getId(), task);
     }
 
     @Override
     public void addEpic(Epic epic) throws IOException {
-        epic.setId(++nextId);
+        if (epic.getId() == 0) {
+            epic.setId(++nextId);
+        }
         epics.put(epic.getId(), epic);
     }
 
     @Override
     public void addSubtask(Subtask subtask) throws IOException {
-        if(epics.containsKey((subtask.getEpicId())))
-        subtask.setId(++nextId);
-        Epic epic = epics.get(subtask.getEpicId());
-        epic.addSubtasks(nextId);
-        subTasks.put(nextId, subtask);
-        updateEpicStatus(subtask.getEpicId());
+        if (epics.containsKey(subtask.getEpicId())) {
+            if (subtask.getId() == 0) {
+                subtask.setId(++nextId);
+            }
+            Epic epic = epics.get(subtask.getEpicId());
+            epic.addSubtasks(nextId);
+            subTasks.put(nextId, subtask);
+            updateEpicStatus(subtask.getEpicId());
+        }
     }
 
     @Override
@@ -121,29 +127,40 @@ public class InMemoryTaskManager implements TaskManager {
         return result;
     }
 
+
     @Override
     public void updateEpicStatus(int epicId) throws IOException {
-        Epic epic = epics.get(epicId);
-        // Проверяем, есть ли подзадачи у эпика
-        if (epic.getSubTasksIds().isEmpty()) {
-            epic.setStatus(Status.NEW);
-            return;
-        }
+        try {
+            Epic epic = epics.get(epicId);
+            // Проверяем, есть ли подзадачи у эпика
+            if (epic.getSubTasksIds().isEmpty()) {
+                epic.setStatus(Status.NEW);
+                return;
+            }
 
-        // Проверяем статусы всех подзадач эпика
-        boolean allSubtasksDone = true;
-        for (Task subtask : subTasks.values()) {
-            if (!subtask.getStatus().equals(Status.DONE)) {
-                allSubtasksDone = false;
-                break;
+            // Проверяем статусы всех подзадач эпика
+            boolean allSubtasksDone = true;
+            for (Task subtask : subTasks.values()) {
+                if (!subtask.getStatus().equals(Status.DONE)) {
+                    allSubtasksDone = false;
+                    break;
+                }
+            }
+
+            // Рассчитываем статус эпика
+            if (allSubtasksDone) {
+                epic.setStatus(Status.DONE);
+            } else {
+                epic.setStatus(Status.IN_PROGRESS);
             }
         }
-
-        // Рассчитываем статус эпика
-        if (allSubtasksDone) {
-            epic.setStatus(Status.DONE);
-        } else {
-            epic.setStatus(Status.IN_PROGRESS);
+        catch (NullPointerException exp){
+            System.out.println("NullPointerException");
         }
+    }
+
+    @Override
+    public List<Task> getHistory() throws IOException {
+        return historyManager.getHistory();
     }
 }

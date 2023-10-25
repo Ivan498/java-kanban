@@ -1,7 +1,4 @@
 
-b
-java:S3973%"GUse indentation to denote the code conditionally executed by this "if".(ï‘¼˜şÿÿÿÿ
-
-java:S2681'"†This line will not be executed conditionally; only the first line of this 2-line block will be. The rest will execute unconditionally.(ñ´ĞÓ
-r
-java:S4144X"]Update this method so that its implementation is not identical to "removeAllEpic" on line 77.(œÊÃe
+
+java:S4144`"]Update this method so that its implementation is not identical to "removeAllEpic" on line 85.(ï°© ûÿÿÿÿ8˜¸‘¬¶1
+H	java:S106"+Replace this use of System.out by a logger.(Ÿîà›8©¸‘¬¶1
