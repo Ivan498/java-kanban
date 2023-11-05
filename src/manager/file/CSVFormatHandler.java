@@ -24,24 +24,6 @@ public class CSVFormatHandler {
         return result;
     }
 
-    public Task fromString(String value){
-        String[] parts = value.split(DELIMITER);
-
-        String name = parts[0];
-        String description = parts[1];
-        Status status = Status.valueOf(parts[2]);
-        int epicId = Integer.parseInt(parts[3]);
-        Types types = Types.valueOf(parts[4]);
-
-        if (types == Types.SUBTASK && parts.length > 5){
-            return new Subtask(name, description, status, epicId, types);
-        }
-        else if (types == Types.EPIC){
-            return new Epic(name, description, types);
-        }
-
-        return new Task(name, description, status);
-    }
 
     static String historyToString(HistoryManager manager){
         List<String> result = new ArrayList<>();
@@ -51,18 +33,35 @@ public class CSVFormatHandler {
         }
         return String.join(DELIMITER , result);
     }
+    public Task fromString(String value){
+        String[] parts = value.split(",");
+        //1,TASK,Task1,NEW,Description task1,
+        int id = Integer.parseInt(parts[0]);
+        Types types = Types.valueOf(parts[1]);
+        String name = parts[2];
+        Status status = Status.valueOf(parts[3]);
+        String description = parts[4];
+        String epicName = parts[5];
 
+        if (types == Types.SUBTASK){
+            return new Subtask(id, types, name, status, description,epicName);
+        }
+        else if (types == Types.EPIC){
+            return new Epic(id, types, name, status, description,epicName);
+        }
+
+        return new Task(id, types, name, status, description,epicName);
+    }
     static List<Integer> historyFromString(String value){
         List<Integer> historyNumber = new ArrayList<>();
 
-        String[] values = value.split(DELIMITER);
+        String[] values = value.split(",");
 
         for (String history : values) {
             historyNumber.add(Integer.valueOf(history));
         }
         return historyNumber;
     }
-
     public String getHeader(){
         return "id,type,name,status,description,epic";
     }

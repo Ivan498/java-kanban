@@ -1,36 +1,27 @@
 
-L	java:S1063"+Replace this use of System.out by a logger.(Œ¥€äüÿÿÿÿ8×¼ñ«¶1
-G	java:S1064"+Replace this use of System.out by a logger.(â¿àÅ8Ø¼ñ«¶1
-F	java:S1065"+Replace this use of System.out by a logger.(¡ğ¢88Ø¼ñ«¶1
-L	java:S1067"+Replace this use of System.out by a logger.(ÁÆÌ³úÿÿÿÿ8Ø¼ñ«¶1
-G	java:S1068"+Replace this use of System.out by a logger.(¡‡Äô8Ø¼ñ«¶1
-L	java:S106:"+Replace this use of System.out by a logger.(ÍŠ¿Ôÿÿÿÿÿ8Ù¼ñ«¶1
-L	java:S106@"+Replace this use of System.out by a logger.(Œ¥€äüÿÿÿÿ8Ù¼ñ«¶1
-G	java:S106A"+Replace this use of System.out by a logger.(â¿àÅ8Ù¼ñ«¶1
-F	java:S106B"+Replace this use of System.out by a logger.(¡ğ¢88Ú¼ñ«¶1
-L	java:S106E"+Replace this use of System.out by a logger.(ÍŠ¿Ôÿÿÿÿÿ8Ú¼ñ«¶1
-„
-java:S4087["bRemove this "close" call; closing the resource is handled automatically by the try-with-resources.(ÄËªŸÿÿÿÿÿ8Û¼ñ«¶1
+u
+java:S1192"XDefine a constant instead of duplicating this literal "src/manager/example.csv" 3 times.(“´›Ã8ßó­ø¹1
+z	java:S135Y"YReduce the total number of break and continue statements in this loop to use at most one.(­´àÓùÿÿÿÿ8Ô–ºÓ·1
+W
+java:S1141_"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ8Õ–ºÓ·1
+L	java:S106#"+Replace this use of System.out by a logger.(Ø™ã—ıÿÿÿÿ8’™ºÓ·1
+G	java:S106&"+Replace this use of System.out by a logger.(ãèà8“™ºÓ·1
+L	java:S106("+Replace this use of System.out by a logger.(¸çĞÎÿÿÿÿÿ8“™ºÓ·1
+L	java:S106+"+Replace this use of System.out by a logger.(ŒÚòÒúÿÿÿÿ8•™ºÓ·1
+F	java:S106-"+Replace this use of System.out by a logger.(íáà58•™ºÓ·1
+G	java:S1060"+Replace this use of System.out by a logger.(‘ùûù8–™ºÓ·1
+L	java:S1062"+Replace this use of System.out by a logger.(ª¦Š‹üÿÿÿÿ8–™ºÓ·1
+L	java:S1065"+Replace this use of System.out by a logger.(ŒÒÒ¨ûÿÿÿÿ8—™ºÓ·1
+G	java:S1067"+Replace this use of System.out by a logger.(•³÷8˜™ºÓ·1
+W
+java:S2209I"5Change this instance-reference to a static reference.(º¾şùÿÿÿÿ8™ºÓ·1
+o
+java:S3776P"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(ŞüªÕ8 ™ºÓ·1
+8
+java:S3626d"Remove this redundant jump.(ÉŠ©ƒ8¡™ºÓ·1
+h
+java:S2677V"LUse or store the value returned from "readLine" instead of throwing it away.(’Ä8¥™ºÓ·1
 R
-java:S2209Y"5Change this instance-reference to a static reference.(½Åäó8Ş¼ñ«¶1
-M
-java:S1172c"+Remove this unused method parameter "file".(»•ó–ùÿÿÿÿ8ß¼ñ«¶1
-L
-java:S1128
-"/Remove this unused import 'java.nio.file.Path'.(×²êÂ8–íû«¶1
-M
-java:S1128"0Remove this unused import 'java.nio.file.Paths'.(áè°¯8—íû«¶1
-;
-java:S1128"Remove this duplicated import.(æè¥8ç¼ñ«¶1
-;
-java:S1128"Remove this duplicated import.(Îº±©8ç¼ñ«¶1
-@
-java:S1128"Remove this duplicated import.(—¨­ûÿÿÿÿ8ç¼ñ«¶1
-J
-java:S1128"-Remove this unused import 'manager.Managers'.(ñ¯¼µ8—íû«¶1
-@
-java:S1128"Remove this duplicated import.(€’¹Âşÿÿÿÿ8ç¼ñ«¶1
-U
-java:S1128"3Remove this unused import 'manager.HistoryManager'.(îšàşÿÿÿÿ8—íû«¶1
-M
-java:S1128"0Remove this unused import 'manager.TaskManager'.(ğíé—8—íû«¶1
+java:S2209x"5Change this instance-reference to a static reference.(¿îí»8©™ºÓ·1
+I
+java:S1172ˆ"+Remove this unused method parameter "file".(éğß8«™ºÓ·1

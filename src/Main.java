@@ -7,13 +7,14 @@ import manager.HistoryManager;
 import manager.Status;
 import manager.TaskManager;
 import manager.file.FileBackedTasksManager;
+import manager.file.ManagerSaveException;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ManagerSaveException {
         HistoryManager historyManager = Managers.getHistoryDefault();
         TaskManager taskManager = Managers.getDefault();
         Task task1 = new Task("Задача №1", "...", Status.DONE);

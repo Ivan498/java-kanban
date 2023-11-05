@@ -3,6 +3,7 @@ package manager;
 import Tasks.Epic;
 import Tasks.Subtask;
 import Tasks.Task;
+import manager.file.ManagerSaveException;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
 import java.util.HashMap;
 
 public class InMemoryTaskManager implements TaskManager {
+    protected int idInc = 0;
 
     protected HashMap<Integer, Task> tasks = new HashMap<>();
     protected HashMap<Integer, Epic> epics = new HashMap<>();
@@ -22,7 +24,7 @@ public class InMemoryTaskManager implements TaskManager {
     public InMemoryTaskManager(String s) {
 
     }
-    public void addTask(Task task) throws IOException {
+    public void addTask(Task task) throws IOException, ManagerSaveException {
         if (task.getId() == 0) {
             task.setId(++nextId);
         }
@@ -30,7 +32,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void addEpic(Epic epic) throws IOException {
+    public void addEpic(Epic epic) throws IOException, ManagerSaveException {
         if (epic.getId() == 0) {
             epic.setId(++nextId);
         }
@@ -38,7 +40,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void addSubtask(Subtask subtask) throws IOException {
+    public void addSubtask(Subtask subtask) throws IOException, ManagerSaveException {
         if (epics.containsKey(subtask.getEpicId())) {
             if (subtask.getId() == 0) {
                 subtask.setId(++nextId);
@@ -51,55 +53,55 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public void updateTask(Task task) throws IOException {
+    public void updateTask(Task task) throws IOException, ManagerSaveException {
         tasks.put(task.getId(),task);
     }
 
     @Override
-    public void updateEpic(Epic epic) throws IOException {
+    public void updateEpic(Epic epic) throws IOException, ManagerSaveException {
         epics.put(epic.getId(), epic);
     }
 
     @Override
-    public void updateSubtask(Subtask subtask) throws IOException {
+    public void updateSubtask(Subtask subtask) throws IOException, ManagerSaveException {
         subTasks.put(subtask.getId(), subtask);
         updateEpicStatus(subtask.getEpicId());
     }
 
     @Override
-    public List<Task> getAllEpic() throws IOException {
+    public List<Task> getAllEpic() throws IOException, ManagerSaveException {
         return new ArrayList<>(epics.values());
     }
 
     @Override
-    public List<Task> getAllTask() throws IOException {
+    public List<Task> getAllTask() throws IOException, ManagerSaveException {
         return new ArrayList<>(tasks.values());
     }
 
     @Override
-    public List<Task> getAllSubtask() throws IOException {
+    public List<Task> getAllSubtask() throws IOException, ManagerSaveException {
         return new ArrayList<>(subTasks.values());
     }
 
     @Override
-    public void removeAllEpic() throws IOException {
+    public void removeAllEpic() throws IOException, ManagerSaveException {
         epics.clear();
         subTasks.clear();
     }
 
     @Override
-    public void removeAllTask() throws IOException {
+    public void removeAllTask() throws IOException, ManagerSaveException {
         tasks.clear();
     }
 
     @Override
-    public void removeAllSubtask() throws IOException {
+    public void removeAllSubtask() throws IOException, ManagerSaveException {
        epics.clear();
        subTasks.clear();
     }
 
     @Override
-    public Task getTaskById(int taskId) throws IOException {
+    public Task getTaskById(int taskId) throws IOException, ManagerSaveException {
       Task task = tasks.get(taskId);
       historyManager.add(task);
       return task;
@@ -107,7 +109,7 @@ public class InMemoryTaskManager implements TaskManager {
 
 
     @Override
-    public void deletionSubtaskById(int id) throws IOException {
+    public void deletionSubtaskById(int id) throws IOException, ManagerSaveException {
         for (Epic epic : epics.values()) {
             if (epics.containsKey(id)) {
                 epic.clearSubtask();
@@ -117,7 +119,7 @@ public class InMemoryTaskManager implements TaskManager {
     }
 
     @Override
-    public List<Subtask> getEpicTasks(int epicId) throws IOException {
+    public List<Subtask> getEpicTasks(int epicId) throws IOException, ManagerSaveException {
         ArrayList<Subtask> result = new ArrayList<>();
         subTasks.values().forEach(subtask -> {
             if(epicId == subtask.getEpicId()){
@@ -129,10 +131,10 @@ public class InMemoryTaskManager implements TaskManager {
 
 
     @Override
-    public void updateEpicStatus(int epicId) throws IOException {
-        try {
+    public void updateEpicStatus(int epicId) throws IOException, ManagerSaveException {
             Epic epic = epics.get(epicId);
             // Проверяем, есть ли подзадачи у эпика
+        try {
             if (epic.getSubTasksIds().isEmpty()) {
                 epic.setStatus(Status.NEW);
                 return;
@@ -159,8 +161,9 @@ public class InMemoryTaskManager implements TaskManager {
         }
     }
 
+
     @Override
-    public List<Task> getHistory() throws IOException {
+    public List<Task> getHistory() throws IOException, ManagerSaveException {
         return historyManager.getHistory();
     }
 }

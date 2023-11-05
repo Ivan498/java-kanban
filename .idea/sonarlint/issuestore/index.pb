@@ -32,3 +32,7 @@ D
 src/Tasks/Types.java,b\7\b7254dbeebcb93b2d46544bea278d111a6887f83
 G
 src/manager/example.csv,6\1\61c58070b51febe239396f1145133baf8d1cf758
+Z
+*src/manager/file/ManagerSaveException.java,8\e\8eeee8d83551940c42f9418275e59a0effa53e04
+G
+src/Tasks/EpicTest.java,6\7\67497e5ed53e0501922c2bd3ad3de46427928cfe
